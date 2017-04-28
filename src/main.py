@@ -12,6 +12,8 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # file: main.py
+# description: Implementation of a Simple MVC in Python 
+#              that computes arithmetic operations.
 # date: 15-05-14
 # author: Victor Neville
 

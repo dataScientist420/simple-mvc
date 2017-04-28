@@ -84,6 +84,7 @@ class Controller:
             not isinstance(operation, str):
             return
         
+        # compute arithmetic operation
         if operation == 'm':
             self.__model.setSolution(first_oper % second_oper)
         elif operation == 'a':
