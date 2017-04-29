@@ -23,7 +23,7 @@ class Controller:
 
     # Function that allows the user to enter an integer on the keyboard.
     def __getInteger(self, msg):
-        if not isinstance(msg, str):
+        if not isinstance(msg, str): # validate args
             return
             
         value = ''
@@ -40,7 +40,7 @@ class Controller:
     
     # Function that allows the user to enter a string on the keyboard.
     def __getStr(self, msg, vals):
-        
+    
         # validate args
         if not isinstance(msg, str) or not isinstance(vals, tuple):
             return
@@ -75,16 +75,8 @@ class Controller:
             value = self.__getStr(msg, ('y', 'n'))
         return value
 
-    # Function that computes the operation and sets the solution.
+    # Function that computes the arithmetic operation and sets the solution.
     def __setModelSolution(self, first_oper, second_oper, operation):
-        
-        # validate args
-        if not isinstance(first_oper, int) or   \
-            not isinstance(second_oper, int) or \
-            not isinstance(operation, str):
-            return
-        
-        # compute arithmetic operation
         if operation == 'm':
             self.__model.setSolution(first_oper % second_oper)
         elif operation == 'a':
