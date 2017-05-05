@@ -11,19 +11,28 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# package: MVC
-# file: controller.py
-# date: 15-05-14
-# author: Victor Neville
+# @package: MVC
+# @file: controller.py
+# @description: Implementation of the Controller class.
+# @date: 15-05-14
+# @author: Victor Neville
 
 import os
 import time
 
 class Controller:
 
-    # Function that allows the user to enter an integer on the keyboard.
+	###########################################################################
+    # @name: __getInteger
+    # @description: Allows the user to enter an integer on the keyboard.
+    # @inputs:
+    # - self: the Controller object
+    # - msg: the input message that has to be displayed
+    # @returns: the integer chosen by the user
     def __getInteger(self, msg):
-        if not isinstance(msg, str): # validate args
+    
+    	# validate args
+        if not isinstance(msg, str): 
             return
             
         value = ''
@@ -38,7 +47,14 @@ class Controller:
                 print('The value must be an integer.')
         return value
     
-    # Function that allows the user to enter a string on the keyboard.
+    ###########################################################################
+    # @name: __getStr
+    # @description: Allows the user to enter a string on the keyboard.
+    # @inputs:
+    # - self: the Controller object
+    # - msg: the input message that has to be displayed
+    # - vals: values that can be accepted
+    # @returns: the string chosen by the user
     def __getStr(self, msg, vals):
     
         # validate args
@@ -53,8 +69,14 @@ class Controller:
             os.system('clear')
             value = input(msg).lower()
         return value
-
-    # Function that allows the user to enter an input on the keyboard.
+    
+    ###########################################################################
+    # @name: __getInput
+    # @description: Allows the user to enter an input on the keyboard.
+    # @inputs:
+    # - self: the Controller object
+    # - mode: the input mode
+    # @returns: the input chosen by the user
     def __getInput(self, mode=None):
         value = None
         
@@ -74,8 +96,15 @@ class Controller:
             msg = 'Continue yes(y) or no(n) ? '
             value = self.__getStr(msg, ('y', 'n'))
         return value
-
-    # Function that computes the arithmetic operation and sets the solution.
+    
+    ###########################################################################
+    # @name: __setModelSolution
+    # @description: Computes basic arithmetic operations and sets the solution.
+    # @inputs:
+    # - self: the Controller object 
+    # - first_oper: the first operand
+    # - second_oper: the second operand
+    # - operation: the arithmetic operation
     def __setModelSolution(self, first_oper, second_oper, operation):
         if operation == 'm':
             self.__model.setSolution(first_oper % second_oper)
@@ -88,11 +117,16 @@ class Controller:
         else:
             self.__model.setSolution(first_oper / float(second_oper))
     
-    # Constructor
+    ###########################################################################
+    # @name: __init__
+    # @description: The constructor of the Controller object.
+    # @inputs:
+    # - self: the Controller object 
+    # - view: the View object
+    # - model: the Model object
     def __init__(self, view, model):
         self.__view = view
-        self.__model = model
-       
+        self.__model = model    
         done = False
            
         while not done:

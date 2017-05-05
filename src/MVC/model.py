@@ -11,21 +11,36 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# package: MVC
-# file: model.py
-# date: 15-05-14
-# author: Victor Neville
+# @package: MVC
+# @file: model.py
+# @description: Implementation of the Model class.
+# @date: 15-05-14
+# @author: Victor Neville
 
 class Model:
 
-    # Constructor
+    ###########################################################################
+    # @name: __init__
+    # @description: The constructor of the Model object.
+    # @inputs: 
+    # - self: the Model object
     def __init__(self):
         self.__solution = None
 
-    # Setter
+    ###########################################################################
+    # @name: setSolution
+    # @description: Setter of the solution.
+    # @inputs: 
+    # - self: the Model object
+    # - solution: the solution value
     def setSolution(self, solution):
         self.__solution = solution
     
-    # Getter    
+    ###########################################################################
+    # @name: getSolution
+    # @description: Getter of the solution.
+    # @inputs: 
+    # - self: the Model object
+    # @return: the solution value    
     def getSolution(self):
         return self.__solution

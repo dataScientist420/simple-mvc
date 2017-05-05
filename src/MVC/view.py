@@ -11,16 +11,27 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# package: MVC
-# file: view.py
-# date: 15-05-14
-# author: Victor Neville 
+# @package: MVC
+# @file: view.py
+# @description: Implementation of the View class.
+# @date: 15-05-14
+# @author: Victor Neville 
 
 class View:
 
-    # Constructor
+    ###########################################################################
+    # @name: __init__
+    # @description: The constructor of the View object.
+    # @inputs: 
+    # - self: the View object
     def __init__(self):
         pass
 
+	###########################################################################
+    # @name: printModel
+    # @description: Displays the solution of the Model.
+    # @inputs: 
+    # - self: the View object
+    # - model: the Model object
     def printModel(self, model):
         print('Result =', model.getSolution())
