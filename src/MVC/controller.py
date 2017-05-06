@@ -29,23 +29,15 @@ class Controller:
     # - self: the Controller object
     # - msg: the input message that has to be displayed
     # @returns: the integer chosen by the user
-    def __getInteger(self, msg):
-    
-    	# validate args
-        if not isinstance(msg, str): 
-            return
-            
+    def __getInteger(self, msg):            
         value = ''
         
-        # loop while value is a string
-        while isinstance(value, str):
+        # loop while value is not a digit
+        while not value.isdigit():
             os.system('clear')
             value = input(msg)
-            try:
-                value = int(value)
-            except:
-                print('The value must be an integer.')
-        return value
+
+        return int(value)
     
     ###########################################################################
     # @name: __getStr
@@ -58,8 +50,8 @@ class Controller:
     def __getStr(self, msg, vals):
     
         # validate args
-        if not isinstance(msg, str) or not isinstance(vals, tuple):
-            return
+        if not isinstance(msg, str) or not hasattr(vals, '__iter__'):
+            return None
     
         os.system('clear')
         value = input(msg).lower()
@@ -114,8 +106,10 @@ class Controller:
             self.__model.setSolution(first_oper - second_oper)
         elif operation == 'p':
             self.__model.setSolution(first_oper * second_oper)
-        else:
+        elif operation == 'd':
             self.__model.setSolution(first_oper / float(second_oper))
+        else:
+            self.__model.setSolution(None)
     
     ###########################################################################
     # @name: __init__
@@ -138,5 +132,5 @@ class Controller:
             view.printModel(model)
             time.sleep(2)
             
-            if self.__getInput(mode='cotinue') == 'n': 
+            if self.__getInput(mode='continue') == 'n': 
                 done = True
